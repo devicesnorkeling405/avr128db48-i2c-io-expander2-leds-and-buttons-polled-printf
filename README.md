@@ -1,4 +1,4 @@
-<!-- Please do not change this logo with link -->
+<!-- MPAE-19439 Please do not change this logo with link -->
 
 <a target="_blank" href="https://www.microchip.com/" id="top-of-page">
    <picture>
@@ -8,8 +8,13 @@
    </picture>
 </a>
 
-# Update the title for avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf here
+# AVR128DB48 I2C_Host Example Component for CNano Explorer: I/O Expander 2 LEDs and BUTTONs (Polled, Printf)
 
+When running the application, using the MPLAB Data Visualizer, you should see something similar to the following: 
+![alt text](images/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf.png)
+
+The following is the required MCC Melody configuration. 
+![alt text](images/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_configuration.png)
 <!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
 
 ## Related Documentation
