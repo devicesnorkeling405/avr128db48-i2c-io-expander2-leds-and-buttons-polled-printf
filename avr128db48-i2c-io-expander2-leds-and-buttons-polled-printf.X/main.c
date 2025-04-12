@@ -123,9 +123,9 @@ void printButtonPressed(int pressedButton) {
 
 void button_led_control(void)
 {      
-    uint8_t ioexInputs = 0;
-    uint8_t defaultInputs = 0;
-    uint8_t activeLEDs = 0;
+    uint8_t mcp23008_1_activeLEDs = 0;
+    uint8_t mcp23008_2_previousInputs = 0;
+    uint8_t mcp23008_2_currentInputs = 0;
 
     (uint8_t) MCP23008_Write(MCP23008_1_I2C_ADDRESS, MCP23008_IODIR, 0x00);
     (uint8_t) MCP23008_Write(MCP23008_1_I2C_ADDRESS, MCP23008_GPIO, 0x00);    // After this line of code, the LEDs should be on. 
@@ -135,25 +135,25 @@ void button_led_control(void)
     (uint8_t) MCP23008_Write(MCP23008_2_I2C_ADDRESS, MCP23008_IOCON, 0x20);   // Set SEQOP bit to 1 for Byte mode
 
     // Read the default state of the inputs
-    (uint8_t) MCP23008_Read(MCP23008_2_I2C_ADDRESS, MCP23008_GPIO, &defaultInputs);
-    (int) printf("Default inputs: 0x%02X\n", defaultInputs);
+    (uint8_t) MCP23008_Read(MCP23008_2_I2C_ADDRESS, MCP23008_GPIO, &mcp23008_2_previousInputs);
+    (int) printf("Default inputs: 0x%02X\n", mcp23008_2_previousInputs);
 
     while ((IO_Reset_GetValue() != 0) && !resetFlag)         // Run until Reset SW is pressed
     {
-        (uint8_t) MCP23008_Read(MCP23008_2_I2C_ADDRESS, MCP23008_GPIO, &ioexInputs); // Read GPIO register to get the state of the inputs
+        (uint8_t) MCP23008_Read(MCP23008_2_I2C_ADDRESS, MCP23008_GPIO, &mcp23008_2_currentInputs); // Read GPIO register to get the state of the inputs
         
-        uint8_t changed_inputs = defaultInputs ^ ioexInputs; // XOR to find changed bits
+        uint8_t changed_inputs = mcp23008_2_previousInputs ^ mcp23008_2_currentInputs; // XOR to find changed bits
         if (!(changed_inputs == 0U)) // Check if there is any change from the default state
         {
             for (uint8_t i = 0U; i < 8U; i++) // Check each bit to see if a button is pressed
             {
                 if (!(changed_inputs == 0U)) // Check if there is any change from the default state
                 {
-                    if ((ioexInputs & (1U << i)) == 0U) // Button pressed (active low)
+                    if ((mcp23008_2_currentInputs & (1U << i)) == 0U) // Button pressed (active low)
                     {
                         uint8_t pressedButton = i;
-                        activeLEDs = (activeLEDs | (1U << pressedButton));
-                        (uint8_t) MCP23008_Write(MCP23008_1_I2C_ADDRESS, MCP23008_GPIO, activeLEDs); // Set IO-expander 1 pins low
+                        mcp23008_1_activeLEDs = (mcp23008_1_activeLEDs | (1U << pressedButton));
+                        (uint8_t) MCP23008_Write(MCP23008_1_I2C_ADDRESS, MCP23008_GPIO, mcp23008_1_activeLEDs); // Set IO-expander 1 pins low
                         printButtonPressed(pressedButton); 
                     }
                 }

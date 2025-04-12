@@ -146,7 +146,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\examples\I2C-Host-Example\i2c_host_example.c</file>
-         <hash>8a4c8fb9c5a95d53dbb71834a048b46c9eb433a60e8674ad03b548bd222c7244</hash>
+         <hash>faa91b838c4a01ae78e77355725923b6f69d3be3b70d6846d74184c602b8d2d1</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\i2c_host\i2c_host_event_types.h</file>
