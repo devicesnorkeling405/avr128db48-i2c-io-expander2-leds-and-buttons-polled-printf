@@ -10,47 +10,62 @@
 
 # AVR128DB48 I2C_Host Example Component for CNano Explorer: I/O Expander 2 LEDs and BUTTONs (Polled, Printf)
 
+
+The [I<sup>2</sup>C Host IO Expander 2 - LEDs and Buttons Example](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.RUNNING.I2C.HOST.IOEXPANDER2.LEDS.BUTTONS&version=latest&redirect=true "I2C Host IO Expander 1 - LEDs Example"
+), of the [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer"
+), is used here in the Polled implementation with the Printf visualization. 
+
+![alt text](images\avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_intro.png)
+
+On the Curiosity Nano Explorer, the pins on the I<sup>2</sup>C I/O Expander 1 are connected to active-low LEDs, while the pins on the I<sup>2</sup>C I/O Expander 2 are connected to buttons (SW1, SW2 and SW3) as well as the joystick inputs (left, right, up, down, press).
+
+This example configures the I/O Expander 1 pins as outputs set LOW, so the active-low LEDs are initially all turned on. The I/O Expander 2 pins are configured as digital inputs. As a button press or joystick input is detected, the associated LED is turned off. The Curiosity Nano's SW is configured as a reset, turning on all the LEDs again.  
+
+## Operation
+When running the application using the [MPLAB® Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer "MPLAB® Data Visualizer"), you should see something similar to the following: 
+
 When running the application, using the MPLAB Data Visualizer, you should see something similar to the following: 
 ![alt text](images/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf.png)
+**Note:** Behaviour is not as reliable as in the Callbacks version. 
 
-The following is the required MCC Melody configuration. 
+**Note:** Debug I/O is not actively used. However, since the SW pin on the Curiosity Nano is a Debug I/O pin, so when pushing the IO_Reset, a toggle is picked up on the Debug I/O pin. 
+
+## Setup
+The image below outlines the complete MPLAB Code Configurator (MCC) Melody configuration, including all the selected tasks implemented in this example, as seen in the MCC Melody Builder.
+
 ![alt text](images/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_configuration.png)
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
+ 
+![alt text](images/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_configuration_pins.png)
+
+## MCC Melody Example Components
+Example Components are a tight integration of learning material directly into MCC. This allows users to conveniently place the configuration instructions side-by-side to the components they are configuring. For more information, refer to the [MCC Melody Example Components](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.EXAMPLES&version=latest&redirect=true) introduction. 
+
 
 ## Related Documentation
 
-<!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
-     In addition a link to the device family landing page and relevant peripheral pages as well:
-     - [AN3381 - Brushless DC Fan Speed Control Using Temperature Input and Tachometer Feedback](https://microchip.com/00003381/)
-     - [PIC18F-Q10 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family) -->
+- [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer")
+- [MCC Melody Design Patterns for Control Flow](https://onlinedocs.microchip.com/g/GUID-7CE1AEE9-2487-4E7B-B26B-93A577BA154E "MCC Melody Design Patterns for Control Flow")
+
+- [Curiosity Nano Explorer User Guide](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/UserGuides/AVR128DB48-Curiosity-Nano-HW-UserGuide-DS40002186B.pdf "Curiosity Nano Explorer Users Guide")
+
+- [AVR128DB48 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/AVR128DB28-32-48-64-DataSheet-DS40002247A.pdf "AVR128DB48 Data Sheet")
 
 ## Software Used
+- [MPLAB® X IDE](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) v6.25 or newer 
+- [MPLAB® XC8](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/xc8) v3.00 or newer
 
-<!-- All software used in this example must be listed here. Use unbreakable links!
-     - MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-     - MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-     - MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) -->
+- [MPLAB® Code Configurator](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator) (MCC) Plug-in Version v5.6.2 or newer (*Tools>Plugins>Installed*, search: "MCC")
+- [MPLAB® Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer) Plug-in Version v1.4.1926 or newer (*Tools>Plugins>Installed*, search: "Data Visualizer")
+- MCC Melody I2C_Host Example Component for the Curiosity Nano Explorer 1.0.0 or newer
+- MCC Core v5.8.2 or newer 
+- Single Page Application (SPA) Host v1.0.0 or newer
+- MCC Melody Core v2.9.1 or newer
 
-- MPLAB® X IDE 6.25.0 or newer [(MPLAB® X IDE 6.25)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide)
-- MPLAB® XC8 3.0.0 or newer compiler [(MPLAB® XC8 3.0)](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/xc8)
+Open the MCC Content Manager ![CM_icon](images/Icon-MPLAB-CM24.png) to verify the MCC Core and MCC Melody Core versions. 
+
+![alt text](images/MCC_Core_ContentLibrary_Versions_SPA.png) 
 
 ## Hardware Used
+- AVR128DB48 Curiosity Nano [(EV35L43A)](https://www.microchip.com/en-us/development-tool/EV35L43A)
+- Curiosity Nano Explorer [(EV58G97A)](https://www.microchip.com/en-us/development-tool/EV58G97A)
 
-<!-- All hardware used in this example must be listed here. Use unbreakable links!
-     - PIC18F47Q10 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM182029)
-     - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-     - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
-
-## Setup
-
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
-
-## Operation
-
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
-
-## Summary
-
-<!-- Summarize what the example has shown -->

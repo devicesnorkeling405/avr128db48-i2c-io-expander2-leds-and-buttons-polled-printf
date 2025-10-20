@@ -25,7 +25,7 @@
  * 
  * @ingroup i2c_host example
  * 
- * @version I2C_HOST EXAMPLE Example Version 1.0.0
+ * @version I2C_HOST EXAMPLE Example Version 1.0.1
  *
  * @brief Generated file for
  *        Example:           3. I2C IO Expander 2 - LEDs and Buttons 
@@ -57,16 +57,16 @@
 #define MCP23008_OLAT       0x0A
 
 extern void DELAY_milliseconds(uint16_t milliseconds);  
-uint8_t MCP23008_Read(uint8_t i2c_address, uint8_t reg, uint8_t* data);
-uint8_t MCP23008_Write(uint8_t i2c_address, uint8_t reg, uint8_t data);
-void printButtonPressed(int pressedButton);
-void button_led_control(void);
+static uint8_t MCP23008_Read(uint8_t i2c_address, uint8_t reg, uint8_t* data);
+static uint8_t MCP23008_Write(uint8_t i2c_address, uint8_t reg, uint8_t data);
+static void printButtonPressed(int pressedButton);
+static void button_led_control(void);
 
 static volatile bool resetFlag = false; 
 // All joystick pins re-mapped as they are not connected to Curiosity Nano GPIO by default
 static const char* buttonLabels[8] = {"J-UP", "J-LEFT", "J-DOWN", "J-RIGHT", "J-PUSH", "SW3", "SW2", "SW1"};
 
-uint8_t MCP23008_Read(uint8_t i2c_address, uint8_t reg, uint8_t* data)
+static uint8_t MCP23008_Read(uint8_t i2c_address, uint8_t reg, uint8_t* data)
 {
     i2c_host_error_t errorState = I2C_ERROR_NONE;
     size_t txLength = 1;
@@ -78,6 +78,10 @@ uint8_t MCP23008_Read(uint8_t i2c_address, uint8_t reg, uint8_t* data)
     uint8_t waitCounter = 100;
     if(I2C_Host.WriteRead((uint16_t)(i2c_address), txBuffer, txLength, data, rxLength))
     {   
+        while(!I2C_Host.IsBusy())
+        {
+            //Wait here until I2C bus can start transmitting
+        }
         while (I2C_Host.IsBusy() && (waitCounter > 0U)) 
         {
             I2C_Host.Tasks();
@@ -90,7 +94,7 @@ uint8_t MCP23008_Read(uint8_t i2c_address, uint8_t reg, uint8_t* data)
 }
 
 
-uint8_t MCP23008_Write(uint8_t i2c_address, uint8_t reg, uint8_t data)
+static uint8_t MCP23008_Write(uint8_t i2c_address, uint8_t reg, uint8_t data)
 {
     i2c_host_error_t errorState = I2C_ERROR_NONE;
     size_t txLength = 2;
@@ -102,6 +106,10 @@ uint8_t MCP23008_Write(uint8_t i2c_address, uint8_t reg, uint8_t data)
     uint8_t waitCounter = 100;
     if(I2C_Host.Write((uint16_t)i2c_address, txBuffer, txLength))
     {   
+        while(!I2C_Host.IsBusy())
+        {
+            //Wait here until I2C bus can start transmitting
+        }
         while (I2C_Host.IsBusy() && (waitCounter > 0U)) 
         {
             I2C_Host.Tasks();
@@ -113,15 +121,15 @@ uint8_t MCP23008_Write(uint8_t i2c_address, uint8_t reg, uint8_t data)
     return errorState;
 }
 
-void printButtonPressed(int pressedButton) {
-    if (pressedButton >= 0 && pressedButton < 8) {
+static void printButtonPressed(int pressedButton) {
+    if ((pressedButton >= 0) && (pressedButton < 8)) {
         (int) printf("Button pressed: %s\n", buttonLabels[pressedButton]);
     } else {
         (int) printf("Invalid button pressed\n");
     }
 }
 
-void button_led_control(void)
+static void button_led_control(void)
 {      
     uint8_t mcp23008_1_activeLEDs = 0;
     uint8_t mcp23008_2_previousInputs = 0;
@@ -169,7 +177,7 @@ int main(void)
     DELAY_milliseconds(200); // Prevent program running when programming
     SYSTEM_Initialize();    
     (int) printf("Example: 3. I2C IO Expander 2 - LEDs and Buttons, Implementation: Polled, Visualization: Printf \r\n");
-    (int) printf("MCU Device family: AVR \r\n");
+    (int) printf("MCU Device family: AVR \r\n\r\n");
     (int) printf("Press Curiosity Nano Explorer touch buttons and use Joystick to turn off all LEDS. Press SW0 on Curiosity Nano to exit. \r\n");
     button_led_control();     
    
