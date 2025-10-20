@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf
-creation_date: 2025-10-20T17:13:26.756+02:00[Europe/Berlin]
+creation_date: 2025-10-20T17:17:52.711+02:00[Europe/Berlin]
 operating_system: Windows 11
 mcc_mode: IDE
 mcc_mode_version: v6.25
